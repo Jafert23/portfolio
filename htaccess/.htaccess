@@ -1,0 +1,30 @@
+# Disable directory listing
+Options -Indexes
+
+# Protect .htaccess file itself
+<Files ".htaccess">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Protect config.php
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Protect PHP files in includes directory
+<Directory "includes">
+    <FilesMatch "\.(php|inc)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</Directory>
+
+# Protect PHPMailer directory
+<Directory "includes/PHPMailer">
+    <FilesMatch "\.(php|inc)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+</Directory>

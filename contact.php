@@ -121,19 +121,28 @@ function test_input($data) {
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" novalidate>
         <!-- Name Field -->
         <div class="form-group">
-            <label for="name">Name:<span class="error">* <?php echo htmlspecialchars($nameErr); ?></span></label>
+            <label for="name">Name:<span class="required">*</span></label>
+            <?php if ($nameErr): ?>
+                <span class="error"><?php echo htmlspecialchars($nameErr); ?></span>
+            <?php endif; ?>
             <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($name); ?>" required>
         </div>
 
         <!-- Email Field -->
         <div class="form-group">
-            <label for="email">Email:<span class="error">* <?php echo htmlspecialchars($emailErr); ?></span></label>
+            <label for="email">Email:<span class="required">*</span></label>
+            <?php if ($emailErr): ?>
+                <span class="error"><?php echo htmlspecialchars($emailErr); ?></span>
+            <?php endif; ?>
             <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
         </div>
 
         <!-- Message Field -->
         <div class="form-group">
-            <label for="message">Message:<span class="error">* <?php echo htmlspecialchars($messageErr); ?></span></label>
+            <label for="message">Message:<span class="required">*</span></label>
+            <?php if ($messageErr): ?>
+                <span class="error"><?php echo htmlspecialchars($messageErr); ?></span>
+            <?php endif; ?>
             <textarea id="message" name="message" required><?php echo htmlspecialchars($message); ?></textarea>
         </div>
 

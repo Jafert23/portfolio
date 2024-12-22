@@ -108,6 +108,18 @@ I undertook this project individually, combining my passion for travel and story
             ],
         ],
     ],
+  [
+    'id' => 'project4',
+    'title' => 'Environmental Monitoring W/ AI',
+    'short_description' => 'A Guide to AI Technologies in Environmental Monitoring',
+    'long_description' => 'A Guide to AI Technologies in Environmental Monitoring',
+    'technologies' => 'React.js, Node.js, JavaScript, HTML5, CSS3',
+    'live_link' => 'https://react-app.creativeelliot.com', // Update this URL to your hidden React app page
+    'images' => [
+        'thumb' => '', // No thumbnail for now
+        'screenshots' => [], // Empty array for screenshots
+    ],
+],
     // Add more projects here
 ];
 
