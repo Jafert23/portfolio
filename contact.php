@@ -7,7 +7,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Include the header
-include 'includes/header.php';
+include 'includes/aboutheader.php';
 
 // Include configuration
 require 'htaccess/config.php'; // Correct relative path
