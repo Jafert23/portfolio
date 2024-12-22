@@ -1021,3 +1021,31 @@ footer p {
 html {
     scroll-behavior: smooth;
 }
+
+/*===============
+  20. Filter Bar
+  ===============*/
+
+  .filter-bar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: none;
+    background-color: #f4f4f4;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+    background-color: #ddd;
+}
+
+.filter-button.active {
+    background-color: #007bff;
+    color: #fff;
+}
