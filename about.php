@@ -11,15 +11,16 @@ include 'includes/aboutheader.php';
 ?>
 
 <section class="gallery container" data-aos="fade-up">
+    <br> <!-- adds space between header and main-->
     <h2>My Projects</h2>
 
     <!-- FILTER BAR -->
     <div class="filter-bar">
         <!-- "All" button if you want to show all categories at once. 
              If you only want one category at a time with NO "All," remove this. -->
-        <button class="filter-button" data-category="all">All</button>
+       <!-- <button class="filter-button" data-category="all">All</button> -->
 
-        <!-- The main 3 categories you mentioned -->
+        <!-- The main 3 categories -->
         <button class="filter-button" data-category="websites">Websites</button>
         <button class="filter-button" data-category="art">Art &amp; Design</button>
         <button class="filter-button" data-category="misc">Misc.</button>
