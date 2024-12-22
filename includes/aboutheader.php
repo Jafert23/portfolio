@@ -1,4 +1,4 @@
-<!-- header.php -->
+<!-- THIS IS THE HEADER WITHOUT "ELLIOT TINDALL"-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
