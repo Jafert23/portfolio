@@ -962,6 +962,7 @@ textarea:focus {
 footer {
     font-size: 0.9em;
     color: var(--color-footer-text);
+    position: relative;
 }
 
 footer p {
@@ -1049,3 +1050,4 @@ html {
     background-color: #007bff;
     color: #fff;
 }
+   
