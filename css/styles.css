@@ -226,10 +226,10 @@ nav {
     background-size: cover;
     background-position: center;
     height: 35vh;
-    color: #ffffffc3;
+    color: #fff;
 }
 
-.parallax-header .overlay {
+.parallax-header .parallax-overlay {
     position: relative;
     z-index: 2;
     text-align: center;

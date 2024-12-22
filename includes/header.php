@@ -42,8 +42,8 @@
 
 <!-- Parallax Header Section -->
 <header class="parallax-header">
-    <div class="overlay">
-        <h1>Elliot Tindall <span class="sr-only">Portfolio</span></h1>
-        <p>Creative Technologist & Developer</p>
+    <div class="parallax-overlay">
+        <h1>Elliot Tindall</h1>
+        <p class="tagline">Creative Technologist &amp; Developer</p>
     </div>
 </header>
