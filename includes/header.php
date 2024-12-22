@@ -29,13 +29,13 @@
         <i class="fa-solid fa-bars"></i>
     </div>
     <ul class="menu">
-        <li><a href="#"style="pointer-events: none;">                                                                                                                                                                                    </a></li>
+        <li><a href="#"style="pointer-events: none;"></a></li>
         <li><a href="index.php">Home</a></li>
-        <li><a href="#"style="pointer-events: none;">         </a></li>
+        <li><a href="#"style="pointer-events: none;"></a></li>
         <li><a href="about.php">Projects</a></li>
-        <li><a href="#"style="pointer-events: none;">         </a></li>
+        <li><a href="#"style="pointer-events: none;"></a></li>
         <li><a href="contact.php">Contact</a></li>
-        <li><a href="#"style="pointer-events: none;">                                                                                                                                                                                    </a></li>
+        <li><a href="#"style="pointer-events: none;"></a></li>
         <!-- Add more menu items as needed -->
     </ul>
 </nav>
