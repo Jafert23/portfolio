@@ -294,10 +294,10 @@ nav {
 }
 
 .project img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
+    width: 100%; /* Ensures the image fills the container's width */
+    height: 50vh; /* Sets a fixed height for uniformity */
+    object-fit: cover; /* Crops the image to fit the container while preserving aspect ratio */
+    display: block; /* Removes any inline spacing issues */
 }
 
 /* Overlay text on hover */

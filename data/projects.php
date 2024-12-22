@@ -135,18 +135,81 @@ I undertook this project individually, combining my passion for travel and story
             ],
         ],
     ],
+            // Add more projects here...
     [
         'id' => 'project4',
-        'title' => 'Environmental Monitoring W/ AI',
-        'short_description' => 'A Guide to AI Technologies in Environmental Monitoring',
-        'long_description' => "A Guide to AI Technologies in Environmental Monitoring. This project explores how advanced AI techniques can be utilized to monitor and analyze environmental data, from climate patterns to pollution levels. By leveraging real-time data feeds and machine learning models, the application aims to provide insights for researchers, policymakers, and communities focused on conservation and sustainability.",
-        'technologies' => 'React.js, Node.js, JavaScript, HTML5, CSS3',
-        'live_link' => 'https://react-app.creativeelliot.com',
+        'title' => 'Environmental Sustainability & AI',
+        'short_description' => 'A final research project exploring advanced AI techniques to promote environmental sustainability.',
+        'long_description' => "This project investigates how artificial intelligence can be harnessed to enhance environmental sustainability efforts. It delves into AI applications such as predictive analytics for climate modeling, optimization algorithms for resource management, and machine learning techniques for monitoring and reducing pollution. The project aims to provide insights into integrating AI solutions to address environmental challenges effectively.",
+        'technologies' => 'React.js, Node.js, JavaScript, HTML5, CSS3, Adobe Illustrator',
+        'live_link' => 'https://ai-sustainability.creativeelliot.com',
         'category' => 'websites',
         'images' => [
-            'thumb' => '',
-            'screenshots' => [],
+            'thumb' => 'images/ai-sustainability/thumb.png',
+            'screenshots' => [
+                'images/ai-sustainability/screenshot1.png',
+                'images/ai-sustainability/screenshot2.png',
+                'images/ai-sustainability/screenshot3.png',
+                'images/ai-sustainability/screenshot4.png'
+            ],
         ],
     ],
-    // Add more projects here...
+    [
+        
+          "id" => "throwieProject",
+          "title"=> "Throwie Digital Art & Photoshop",
+          "short_description"=> "I created a personal throwie of my signature, then photoshopped it onto a location at RIT that I photographed.",
+          "long_description"=> "This project merges street-inspired graffiti with real-world photography. I first designed a throwie—a graffiti-style rendering of my signature—using digital art tools. Then, I used Photoshop to composite it seamlessly onto a photograph I took at Rochester Institute of Technology. The final result is a fun, stylized blend of digital art and on-site photography, showcasing how creative expression can intersect with technology.",
+          "technologies"=> "Photoshop, Adobe Illustrator, Camera",
+          "live_link"=> "",
+          "category"=> "art",
+          "images"=> [
+            "thumb"=> "images/throwie/screenshot2.jpg",
+            "screenshots"=> [
+              "images/throwie/screenshot1.jpg",
+              "images/throwie/screenshot2.jpg"
+            ]
+          ]
+        
+    ],
+   
+    [
+        'id' => 'cardboard-radio-telescope-guide', // Unique identifier for the project
+        'title' => 'Cardboard Radio Telescope Assembly Guide', // Name of the project
+        'short_description' => 'A step-by-step guide showcasing the creation of a cardboard radio telescope, including transmitter and receiver models.', // Short teaser for the project
+        'long_description' => 'This project involves building a cardboard model of a radio telescope, complete with a signal transmitter and receiver. The project was documented in a step-by-step guide, which was designed to be both visually appealing and educational. The guide highlights the process of crafting the components and assembling them into a functional model. It was created as part of a graphic design course to demonstrate instructional design and DIY crafting.',
+        'technologies' => 'Cardboard, Paint, Camera, Adobe Photoshop, Adobe Illustrator, Adobe InDesign, Hot Glue', // Tools and technologies used
+        'live_link' => '', // Optional: Add a live link if applicable (e.g., to a project page)
+        'category' => 'art', // Category or grouping
+        'images' => [
+            'thumb' => 'images/radio-telescope/thumb.jpg', // Thumbnail image for the gallery
+            'screenshots' => [
+                'images/radio-telescope/rt1.jpg',
+                'images/radio-telescope/rt2.jpg',
+                'images/radio-telescope/rt3.jpg',
+                'images/radio-telescope/rt4.jpg',
+                'images/radio-telescope/rt5.jpg',
+                'images/radio-telescope/rt6.jpg',
+                'images/radio-telescope/rt7.jpg',
+                'images/radio-telescope/rt8.jpg'
+                 // Additional screenshots
+            ],
+        ],
+    ],
+    [
+        'id' => 'toyBoatIceland',
+        'title' => 'Toy Boat in Iceland',
+        'short_description' => 'I combined a photograph of a toy boat with a scenic shot from Iceland to create a playful, composite image.',
+        'long_description' => 'This project merges a miniature world with the dramatic Icelandic landscape. I first photographed a toy boat under controlled lighting, ensuring the angle and perspective matched the majestic backdrop I captured in Iceland. Using Photoshop, I composited the two images together, adjusting shadows, color balance, and scale for a realistic yet whimsical effect. The final piece highlights how storytelling can be achieved by blending small-scale subjects with grand natural vistas, breathing new life into the ordinary.',
+        'technologies' => 'Adobe Photoshop, Adobe Illustrator, Camera',
+        'live_link' => '',
+        'category' => 'art',
+        'images' => [
+            'thumb' => 'images/toyboat/thumb.jpg',
+            'screenshots' => [
+                'images/toyboat/toyboat.jpg',
+                
+            ]
+        ]
+    ]
 ];
