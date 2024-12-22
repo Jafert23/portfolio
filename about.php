@@ -7,7 +7,7 @@ include 'data/projects.php';
 $pageTitle = 'Elliot Tindall | Portfolio';
 
 // Include the header, if you have a separate file
-include 'includes/header.php';
+include 'includes/aboutheader.php';
 ?>
 
 <section class="gallery container" data-aos="fade-up">
