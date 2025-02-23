@@ -43,8 +43,8 @@ $projects = [
         'short_description' => 'Well/Informed simplifies complex medical information by aggregating research and clinical trials, and enhancing understanding with AI-generated summaries.',
         'long_description' => "Well/Informed is a digital platform designed to simplify and centralize complex medical information. By aggregating research articles, clinical trials, and expert knowledge, it provides users with AI-generated summaries, making vast medical data more accessible and easier to understand for both professionals and the general public. The platform's goal is to empower individuals to stay well-informed about health advancements, enabling better decision-making and improved health literacy.
 
-Please note that some functions are currently no longer operational due to a recent update to the PubMed API. We are working to resolve this and restore full functionality as soon as possible.",
-        'technologies' => 'React.js, Node.js, Express.js, ChatGPT API, PubMed API, Axios, JavaScript, REST API, JSON, HTML5, CSS3, CORS, OAuth, Firebase',
+        Please note that some functions are currently no longer operational due to a recent update to the PubMed API. We are working to resolve this and restore full functionality as soon as possible.",
+        'technologies' => 'React.js, Node.js, Express.js, OpenAI API, PubMed API, Axios, JavaScript, REST API, JSON, HTML5, CSS3, CORS, OAuth, Firebase',
         'live_link' => 'https://wellinformed.web.app/',
         'category' => 'websites',
         'images' => [
@@ -70,6 +70,11 @@ Please note that some functions are currently no longer operational due to a rec
         'short_description' => 'A how-to website focused on the Linux Operating System.',
         'long_description' => "Command Line Consultants - Linux How-To Guide is a comprehensive website designed to educate users on the fundamentals and advanced features of Linux-based operating systems. Developed as a collaborative team project, the guide serves as an accessible resource for both beginners and intermediate users who wish to enhance their proficiency with Linux.
 
+As the front-end developer and content researcher, my responsibilities included:
+- Designing the User Interface: Creating a user-friendly and intuitive layout to facilitate easy navigation and enhance the learning experience.
+- Content Creation: Conducting thorough research to produce accurate and informative content, ensuring that complex concepts are explained clearly.
+- Responsive Design Implementation: Utilizing modern web technologies to ensure the website is accessible across various devices and screen sizes.
+
 The website offers a structured approach to learning, featuring detailed tutorials and step-by-step instructions on various topics such as:
 - Basic Command-Line Usage: Introducing users to essential commands and navigation techniques within the Linux terminal.
 - System Administration: Guidance on managing user accounts, permissions, and system processes.
@@ -77,13 +82,8 @@ The website offers a structured approach to learning, featuring detailed tutoria
 - Networking Concepts: Explaining network configuration, troubleshooting, and security practices.
 - Troubleshooting and Support: Providing solutions to common issues and errors encountered in Linux environments.
 
-As the front-end developer and content researcher, my responsibilities included:
-- Designing the User Interface: Creating a user-friendly and intuitive layout to facilitate easy navigation and enhance the learning experience.
-- Content Creation: Conducting thorough research to produce accurate and informative content, ensuring that complex concepts are explained clearly.
-- Responsive Design Implementation: Utilizing modern web technologies to ensure the website is accessible across various devices and screen sizes.
-
-The project culminated as our final assignment, and we were proud to receive an A grade, reflecting the quality and effort invested. The success of Command Line Consultants showcases our ability to work effectively as a team, combining technical skills with educational content development to create a valuable learning resource.",
-        'technologies' => 'PHP, HTML5, CSS3, JavaScript, MySQL',
+The project culminated as our final assignment, and we were proud to receive an A, reflecting the quality and effort of the work we invested. The success of Command Line Consultants showcases our ability to work effectively as a team, combining technical skills with educational content development to create a valuable learning resource.",
+        'technologies' => 'PHP, HTML5, CSS3, JavaScript, MySQL, Figma',
         'live_link' => 'https://commandlineconsultants.com',
         'category' => 'websites',
         'images' => [

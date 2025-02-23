@@ -32,7 +32,7 @@ include 'includes/header.php';
 </nav>
 
 <!-- Project Details -->
-<section class="project-details container" data-aos="fade-up">
+<section class="project-details container">
     <!-- Project Screenshots First -->
     <?php if (!empty($project['images']['screenshots'])): ?>
         <div class="screenshots">

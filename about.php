@@ -12,8 +12,7 @@ $pageTitle = 'Elliot Tindall | Portfolio';
 include 'includes/aboutheader.php';
 ?>
 
-<section class="gallery container" data-aos="fade-up">
-    <br>
+<section class="gallery container" data-aos="fade-up" data-aos-duration="1500">
     <h2>My Projects</h2>
 
     <!-- Filter Buttons (no "All") -->
@@ -34,8 +33,7 @@ include 'includes/aboutheader.php';
                    aria-label="View details of <?php echo htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8'); ?>">
 
                     <img src="<?php echo htmlspecialchars($project['images']['thumb'], ENT_QUOTES, 'UTF-8'); ?>" 
-                         alt="<?php echo htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8'); ?> Thumbnail"
-                         loading="lazy">
+                         alt="<?php echo htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8'); ?> Thumbnail">
 
                     <div class="overlay">
                         <h3><?php echo htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8'); ?></h3>
@@ -60,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
             : 'none';
     });
 
-    // Optional: mark the "Websites" button as active
+    // Mark the "Websites" button as active
     const websitesButton = document.querySelector('.filter-button[data-category="websites"]');
     if (websitesButton) {
         websitesButton.classList.add('active');
@@ -92,6 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <?php
-// Include the footer (if you have a separate footer file)
+// Include the footer 
 include 'includes/footer.php';
 ?>
