@@ -12,7 +12,7 @@ include 'includes/header.php';
             <div class="profile-pic" data-aos="fade-right">
                 <img src="images/profile.png" alt="Elliot Tindall" loading="lazy">
             </div>
-            <div class="bio" data-aos="fade-left">
+            <div class="bio">
                 <p>
                     <?php
                     echo nl2br("I am a passionate, driven, and creative individual with an interest in art, design, and technology. My interdisciplinary background allows me to bridge the gap between the technical and creative realms, bringing innovative solutions to complex problems. With a strong foundation in both humanities and computing, I strive to create experiences that are not only functional but also aesthetically engaging. I'm always eager to learn new technologies and collaborate with others who share my passion for innovation.");
@@ -32,43 +32,15 @@ include 'includes/header.php';
                 <ul>
                     <li>
                         <span><i class="fa-brands fa-html5"></i> HTML5</span>
-                        <div class="skill-bar" data-skill-level="4">
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                        </div>
                     </li>
                     <li>
                         <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
-                        <div class="skill-bar" data-skill-level="4">
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                        </div>
                     </li>
                     <li>
                         <span><i class="fa-brands fa-js"></i> JavaScript</span>
-                        <div class="skill-bar" data-skill-level="4">
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                        </div>
                     </li>
                     <li>
                         <span><i class="fa-brands fa-react"></i> React</span>
-                        <div class="skill-bar" data-skill-level="3">
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                        </div>
                     </li>
                 </ul>
             </div>
@@ -79,33 +51,12 @@ include 'includes/header.php';
                 <ul>
                     <li>
                         <span><i class="fa-brands fa-node-js"></i> Node.js</span>
-                        <div class="skill-bar" data-skill-level="3">
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                        </div>
                     </li>
                     <li>
                         <span><i class="fa-brands fa-php"></i> PHP</span>
-                        <div class="skill-bar" data-skill-level="4">
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                        </div>
                     </li>
                     <li>
                         <span><i class="fa-solid fa-database"></i> MySQL</span>
-                        <div class="skill-bar" data-skill-level="3.5">
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                        </div>
                     </li>
                 </ul>
             </div>
@@ -116,43 +67,15 @@ include 'includes/header.php';
                 <ul>
                     <li>
                         <span><i class="fa-brands fa-python"></i> Python</span>
-                        <div class="skill-bar" data-skill-level="4.25">
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                        </div>
                     </li>
                     <li>
                         <span><i class="fa-solid fa-code"></i> R</span>
-                        <div class="skill-bar" data-skill-level="3">
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                        </div>
                     </li>
                     <li>
                         <span><i class="fa-solid fa-code"></i> C</span>
-                        <div class="skill-bar" data-skill-level="3">
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                        </div>
                     </li>
                     <li>
                         <span><i class="fa-solid fa-code"></i> C++</span>
-                        <div class="skill-bar" data-skill-level="3">
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                            <div class="segment"></div>
-                        </div>
                     </li>
                 </ul>
             </div>

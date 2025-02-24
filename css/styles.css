@@ -1050,4 +1050,136 @@ html {
     background-color: #007bff;
     color: #fff;
 }
-   
+
+/* Adjust the base body styles for a sleek dark theme */
+body.dark-mode {
+    background-color: var(--color-dark-mode-bg);
+    color: var(--color-dark-mode-text);
+}
+
+/* Refine navigation in dark mode */
+body.dark-mode nav {
+    background-color: var(--color-dark-mode-nav-bg);
+}
+
+/* Tweak the skill-item container for a minimalist, modern look */
+.skill-item {
+    flex: 1 1 300px;
+    margin: var(--spacing-md);
+    background-color: var(--color-dark-mode-bg);
+    padding: var(--spacing-md);
+    border: none; /* Removed border for a cleaner appearance */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Slightly deeper shadow for dark mode */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* General adjustments for buttons in dark mode */
+body.dark-mode .btn {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+body.dark-mode .btn:hover {
+    background-color: var(--color-btn-hover);
+}
+
+/* Ensure headings and text maintain contrast */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode p {
+    color: var(--color-dark-mode-text);
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        /* Lower the min width to allow more items per row */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .project img {
+        /* Reduce the fixed height so more projects are visible */
+        height: 200px;
+    }
+}
+/* =====================================
+   Dark Mode Overrides
+===================================== */
+body.dark-mode {
+    background-color: var(--color-dark-mode-bg);
+    color: var(--color-dark-mode-text);
+}
+
+body.dark-mode header,
+body.dark-mode footer,
+body.dark-mode nav {
+    background-color: var(--color-dark-mode-nav-bg);
+    color: var(--color-dark-mode-text);
+}
+
+body.dark-mode a {
+    color: var(--color-dark-mode-text);
+}
+
+body.dark-mode .breadcrumb {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .breadcrumb a {
+    color: var(--color-dark-mode-text);
+}
+
+body.dark-mode .menu li a {
+    color: var(--color-dark-mode-text);
+}
+
+body.dark-mode .menu li a:hover::after {
+    background-color: var(--color-primary);
+}
+
+/* Set sections to use the dark mode background */
+body.dark-mode .skills,
+body.dark-mode .experience,
+body.dark-mode .education,
+body.dark-mode .interests,
+body.dark-mode .gallery,
+body.dark-mode .call-to-action {
+    background-color: var(--color-dark-mode-bg);
+}
+
+/* Headings and general text */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode p {
+    color: var(--color-dark-mode-text);
+}
+
+/* Buttons */
+body.dark-mode .btn {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+body.dark-mode .btn:hover {
+    background-color: var(--color-btn-hover);
+}
+
+/* Project Gallery: make cards blend with the background */
+body.dark-mode .project {
+    background-color: var(--color-dark-mode-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Overlay for project cards */
+body.dark-mode .overlay {
+    background: rgba(0, 123, 255, 0.8);
+}
+
+/* Increase visibility of language text in skills section */
+body.dark-mode .skill-item li span {
+    color: var(--color-dark-mode-text);
+}
