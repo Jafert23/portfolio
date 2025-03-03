@@ -121,7 +121,7 @@ I undertook this project individually, combining my passion for travel and story
 - Photography: Capturing images during my trip to enhance the visual appeal.
 - Website Design: Developing the layout and aesthetic to reflect the essence of Japan.",
         'technologies' => 'HTML5, CSS3, JavaScript, Responsive Design',
-        'live_link' => 'https://japan.creativeelliot.com/index.php', 
+        'live_link' => 'https://japan.creativeelliot.com', 
         'category' => 'websites',
         'images' => [
             'thumb' => 'images/project2/thumb.png',
