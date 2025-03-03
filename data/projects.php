@@ -136,6 +136,19 @@ I undertook this project individually, combining my passion for travel and story
         ],
     ],
             // Add more projects here...
+            [
+                'id' => 'Resume',
+                'title' => 'Resume-January_2025',
+                'short_description' => '',
+                'long_description' => "",
+                'technologies' => 'Microsoft Word',
+                'live_link' => 'https://drive.google.com/file/d/1YEVp2RC6Gj2i_Taox3dFQMFRnQ64lOfM/view?usp=sharing',
+                'category' => 'misc',
+                'images' => [
+                    'thumb' => 'images/resume/600x400_resume.svg',
+                    'screenshots' => [],
+                ],
+            ],
     [
         'id' => 'project4',
         'title' => 'Environmental Sustainability & AI',
