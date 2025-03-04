@@ -185,6 +185,26 @@ I undertook this project individually, combining my passion for travel and story
           ]
         
     ],
+    [
+        
+        "id" => "BrandDesign",
+        "title"=> "Brand Design Package",
+        "short_description"=> "I created a brand re-design for a local business.",
+        "long_description"=> "A logo, business card, and a letterhead for the spa and salon 'Ape and Canary'.",
+        "technologies"=> "Photoshop, Adobe Illustrator",
+        "live_link"=> "",
+        "category"=> "art",
+        "images"=> [
+          "thumb"=> "images/logoproject/thumb.png",
+          "screenshots"=> [
+            "images/logoproject/thumb",
+            "images/logoproject/screenshot1",
+            "images/logoproject/screenshot2",
+            "images/logoproject/screenshot3"
+          ]
+        ]
+      
+  ],
    
     [
         'id' => 'cardboard-radio-telescope-guide', // Unique identifier for the project

@@ -71,12 +71,6 @@ include 'includes/header.php';
                     <li>
                         <span><i class="fa-solid fa-code"></i> R</span>
                     </li>
-                    <li>
-                        <span><i class="fa-solid fa-code"></i> C</span>
-                    </li>
-                    <li>
-                        <span><i class="fa-solid fa-code"></i> C++</span>
-                    </li>
                 </ul>
             </div>
         </div>
