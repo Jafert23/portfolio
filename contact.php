@@ -10,6 +10,7 @@ error_reporting(E_ALL);
 // Include configuration and required files
 require 'htaccess/config.php';
 require 'includes/functions.php'; // Make sure this is included for CSRF functions
+require 'includes/db.php';
 require 'includes/PHPMailer/Exception.php';
 require 'includes/PHPMailer/PHPMailer.php';
 require 'includes/PHPMailer/SMTP.php';
@@ -27,8 +28,7 @@ include 'includes/aboutheader.php';
 // Initialize variables
 $name = $email = $message = '';
 $nameErr = $emailErr = $messageErr = '';
-$successMsg = '';
-$errorMsg = '';
+$successMsg = $errorMsg = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Debug information
@@ -64,51 +64,77 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Check if all fields are valid
         if (empty($nameErr) && empty($emailErr) && empty($messageErr)) {
-            /*insert entry data into db ****FUTURE USE ONLY*****/
-            // Send email using PHPMailer
-            $mail = new PHPMailer(true);
-
             try {
-                // Server settings
-                //$mail->SMTPDebug = 2; // Enable verbose debug output (for debugging)
+                // Get database connection
+                $db = Database::getInstance()->getConnection();
+                
+                // Store in database
+                $stmt = $db->prepare("
+                    INSERT INTO contact_submissions 
+                    (name, email, message, ip_address, user_agent) 
+                    VALUES (?, ?, ?, ?, ?)
+                ");
+                
+                $stmt->execute([
+                    $name,
+                    $email,
+                    $message,
+                    $_SERVER['REMOTE_ADDR'] ?? null,
+                    $_SERVER['HTTP_USER_AGENT'] ?? null
+                ]);
+                
+                $submissionId = $db->lastInsertId();
+
+                // Send email
+                $mail = new PHPMailer(true);
                 $mail->isSMTP();
-                $mail->Host       = SMTP_HOST; // Defined in config.php
-                $mail->SMTPAuth   = true;
-                $mail->Username   = SMTP_USERNAME; // Defined in config.php
-                $mail->Password   = SMTP_PASSWORD; // Defined in config.php
+                $mail->Host = SMTP_HOST;
+                $mail->SMTPAuth = true;
+                $mail->Username = SMTP_USERNAME;
+                $mail->Password = SMTP_PASSWORD;
+                $mail->SMTPSecure = strtolower(SMTP_ENCRYPTION) === 'ssl' ? 
+                    PHPMailer::ENCRYPTION_SMTPS : PHPMailer::ENCRYPTION_STARTTLS;
+                $mail->Port = SMTP_PORT;
 
-                // Define the encryption method based on the config
-                if (strtolower(SMTP_ENCRYPTION) === 'ssl') {
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-                } elseif (strtolower(SMTP_ENCRYPTION) === 'tls') {
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                } else {
-                    // Default to TLS if not specified correctly
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                }
+                $mail->setFrom(SMTP_USERNAME, SENDER_NAME);
+                $mail->addAddress(RECIPIENT_EMAIL);
+                $mail->addReplyTo($email, $name);
 
-                $mail->Port       = SMTP_PORT; // Defined in config.php
-
-                // Recipients
-                $mail->setFrom(SMTP_USERNAME, SENDER_NAME); // Defined in config.php
-                $mail->addAddress(RECIPIENT_EMAIL, ''); // Recipient name can be left blank or set accordingly
-
-                // Reply-To
-                $mail->addReplyTo($email, $name); // User's email and name
-
-                // Content
-                $mail->isHTML(false); // Set email format to plain text
+                $mail->isHTML(false);
                 $mail->Subject = 'New Contact Form Submission';
-                $mail->Body    = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+                $mail->Body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
 
                 $mail->send();
+
+                // Update database to reflect email sent
+                $updateStmt = $db->prepare("
+                    UPDATE contact_submissions 
+                    SET email_sent = TRUE, 
+                        status = 'completed' 
+                    WHERE id = ?
+                ");
+                $updateStmt->execute([$submissionId]);
+
                 $successMsg = 'Your message has been sent successfully!';
-                // Clear form fields
                 $name = $email = $message = '';
+
             } catch (Exception $e) {
-                $errorMsg = 'An error occurred while sending your message. Please try again later.';
-                // Log the error message for debugging (ensure error logs are secure)
-                error_log('Mailer Error: ' . $mail->ErrorInfo);
+                error_log("Error: " . $e->getMessage());
+                $errorMsg = 'An error occurred while processing your message. Please try again later.';
+                
+                // Update database if submission exists but email failed
+                if (isset($submissionId)) {
+                    try {
+                        $updateStmt = $db->prepare("
+                            UPDATE contact_submissions 
+                            SET status = 'email_failed' 
+                            WHERE id = ?
+                        ");
+                        $updateStmt->execute([$submissionId]);
+                    } catch (Exception $e) {
+                        error_log("Failed to update submission status: " . $e->getMessage());
+                    }
+                }
             }
         }
     }
