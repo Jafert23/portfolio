@@ -1,4 +1,5 @@
 <?php
+require_once 'security.php';
 session_start();
 
 // Check if already logged in
@@ -7,31 +8,46 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
     exit;
 }
 
-// Initialize variables
 $error = '';
 
 // Process login
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
-    
-    // Replace these with secure credentials (preferably stored in environment variables)
-    $correct_username = 'admin';
-    $correct_password = 'your_secure_password'; // Change this!
-    
-    if ($username === $correct_username && password_verify($password, password_hash($correct_password, PASSWORD_DEFAULT))) {
-        $_SESSION['admin_logged_in'] = true;
-        header('Location: submissions.php');
-        exit;
-    } else {
-        $error = 'Invalid credentials';
+    try {
+        // Check for CSRF token
+        if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+            throw new Exception('Invalid request');
+        }
+
+        // Validate login attempts
+        Security::checkLoginAttempts();
+
+        $username = $_POST['username'] ?? '';
+        $password = $_POST['password'] ?? '';
+
+        // Validate credentials
+        if (Security::validateLogin($username, $password)) {
+            $_SESSION['admin_logged_in'] = true;
+            Security::regenerateSession();
+            Security::resetLoginAttempts();
+            header('Location: submissions.php');
+            exit;
+        }
+    } catch (Exception $e) {
+        $error = $e->getMessage();
     }
+}
+
+// Generate CSRF token
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Admin Login</title>
     <link rel="stylesheet" href="../css/styles.css">
     <style>
@@ -53,6 +69,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .error {
             color: red;
             margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fee;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -62,7 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php if ($error): ?>
             <p class="error"><?php echo htmlspecialchars($error); ?></p>
         <?php endif; ?>
-        <form method="post" action="">
+        <form method="post" action="" autocomplete="off">
+            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
             <div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>

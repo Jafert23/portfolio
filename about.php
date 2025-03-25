@@ -26,10 +26,16 @@ include 'includes/aboutheader.php';
         <?php foreach ($projects as $project): ?>
             <div class="project"
                  data-category="<?php echo htmlspecialchars($project['category'], ENT_QUOTES, 'UTF-8'); ?>"
-                 data-aos="zoom-in">
+                 data-aos="zoom-in"
+                 <?php if ($project['id'] === 'moodboard' && !empty($project['live_link'])): ?>
+                 data-live-link="<?php echo htmlspecialchars($project['live_link'], ENT_QUOTES, 'UTF-8'); ?>"
+                 <?php endif; ?>>
                  
-                <a href="project.php?id=<?php echo htmlspecialchars($project['id'], ENT_QUOTES, 'UTF-8'); ?>" 
+                <a href="<?php echo $project['id'] === 'moodboard' && !empty($project['live_link']) ? 
+                            htmlspecialchars($project['live_link'], ENT_QUOTES, 'UTF-8') : 
+                            'project.php?id=' . htmlspecialchars($project['id'], ENT_QUOTES, 'UTF-8'); ?>" 
                    class="project-link"
+                   <?php if ($project['id'] === 'moodboard'): ?>target="_blank"<?php endif; ?>
                    aria-label="View details of <?php echo htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8'); ?>">
 
                     <img src="<?php echo htmlspecialchars($project['images']['thumb'], ENT_QUOTES, 'UTF-8'); ?>" 

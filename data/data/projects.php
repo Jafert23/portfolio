@@ -38,21 +38,6 @@
 
 $projects = [
     [
-        'id' => 'moodboard',
-        'title' => 'Moodboard',
-        'short_description' => 'A React app that generates a moodboard based on a user-provided prompt.',
-        'long_description' => 'Moodboard is a React app that generates a moodboard based on a user-provided prompt. It uses the Pexels API to help generate the moodboard.',
-        'technologies' => 'React.js, Pexels API, JavaScript, HTML5, CSS3',
-        'live_link' => 'https://moodboard.creativeelliot.com',
-        'category' => 'websites',
-        'images' => [
-            'thumb' => 'images/moodboard/thumb.png',
-            'screenshots' => [
-                'images/moodboard/screenshot1.png',
-            ],
-        ],
-    ],
-    [
         'id' => 'project3',
         'title' => 'Well/Informed',
         'short_description' => 'Well/Informed simplifies complex medical information by aggregating research and clinical trials, and enhancing understanding with AI-generated summaries.',
@@ -136,7 +121,7 @@ I undertook this project individually, combining my passion for travel and story
 - Photography: Capturing images during my trip to enhance the visual appeal.
 - Website Design: Developing the layout and aesthetic to reflect the essence of Japan.",
         'technologies' => 'HTML5, CSS3, JavaScript, Responsive Design',
-        'live_link' => 'https://japan.creativeelliot.com', 
+        'live_link' => 'https://japan.creativeelliot.com/index.php', 
         'category' => 'websites',
         'images' => [
             'thumb' => 'images/project2/thumb.png',
@@ -200,27 +185,6 @@ I undertook this project individually, combining my passion for travel and story
           ]
         
     ],
-    [
-        
-        "id" => "BrandDesign",
-        "title"=> "Brand Design Package",
-        "short_description"=> "I created a brand re-design for a local business.",
-        "long_description"=> "A logo, business card, and a letterhead for the spa and salon 'Ape and Canary'.",
-        "technologies"=> "Photoshop, Adobe Illustrator",
-        "live_link"=> "",
-        "category"=> "art",
-        "images"=> [
-          "thumb"=> "images/logoproject/thumb.png",
-          "screenshots"=> [
-            "images/logoproject/thumb",
-            "images/logoproject/screenshot3",
-            "images/logoproject/screenshot2",
-            "images/logoproject/screenshot1"
-            
-          ]
-        ]
-      
-  ],
    
     [
         'id' => 'cardboard-radio-telescope-guide', // Unique identifier for the project
