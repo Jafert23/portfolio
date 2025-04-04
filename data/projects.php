@@ -38,7 +38,6 @@
 
 $projects = [
     [
-<<<<<<< HEAD
         'id' => 'Meta Frontend Developer Capstone',
         'title' => 'Meta Frontend Developer Capstone',
         'short_description' => 'Little Lemon restaurant Website',
@@ -54,8 +53,6 @@ $projects = [
         ],
     ],
     [
-=======
->>>>>>> fd12a04efa3ba1c55feafd34eb0cbd2f78dbb8a3
         'id' => 'moodboard',
         'title' => 'Moodboard',
         'short_description' => 'A React app that generates a moodboard based on a user-provided prompt.',
