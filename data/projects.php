@@ -228,11 +228,10 @@ I undertook this project individually, combining my passion for travel and story
         "images"=> [
           "thumb"=> "images/logoproject/thumb.png",
           "screenshots"=> [
-            "images/logoproject/thumb",
-            "images/logoproject/screenshot3",
-            "images/logoproject/screenshot2",
-            "images/logoproject/screenshot1"
-            
+            "images/logoproject/thumb.png",
+            "images/logoproject/screenshot3.png",
+            "images/logoproject/screenshot2.png",
+            "images/logoproject/screenshot1.png"
           ]
         ]
       
@@ -277,4 +276,5 @@ I undertook this project individually, combining my passion for travel and story
             ]
         ]
     ]
-            ];
+];
+?>
