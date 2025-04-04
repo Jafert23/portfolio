@@ -38,6 +38,36 @@
 
 $projects = [
     [
+        'id' => 'Meta Frontend Developer Capstone',
+        'title' => 'Meta Frontend Developer Capstone',
+        'short_description' => 'Little Lemon restaurant Website',
+        'long_description' => 'The Final Project of my 7 week Front-End Developer Course',
+        'technologies' => 'HTML, CSS, JavaScript, Figma, GIT, APIs',
+        'live_link' => 'https://restaurant.creativeelliot.com', 
+        'category' => 'websites',
+        'images' => [
+            'thumb' => '/#',
+            'screenshots' => [
+                '/#',
+            ],
+        ],
+    ],
+    [
+        'id' => 'moodboard',
+        'title' => 'Moodboard',
+        'short_description' => 'A React app that generates a moodboard based on a user-provided prompt.',
+        'long_description' => 'Moodboard is a React app that generates a moodboard based on a user-provided prompt. It uses the Pexels API to help generate the moodboard.',
+        'technologies' => 'React.js, Pexels API, JavaScript, HTML5, CSS3',
+        'live_link' => 'https://moodboard.creativeelliot.com',
+        'category' => 'websites',
+        'images' => [
+            'thumb' => 'images/moodboard/thumb.png',
+            'screenshots' => [
+                'images/moodboard/screenshot1.png',
+            ],
+        ],
+    ],
+    [
         'id' => 'project3',
         'title' => 'Well/Informed',
         'short_description' => 'Well/Informed simplifies complex medical information by aggregating research and clinical trials, and enhancing understanding with AI-generated summaries.',
@@ -149,6 +179,7 @@ I undertook this project individually, combining my passion for travel and story
                     'screenshots' => [],
                 ],
             ],
+            
     [
         'id' => 'project4',
         'title' => 'Environmental Sustainability & AI',
@@ -246,4 +277,4 @@ I undertook this project individually, combining my passion for travel and story
             ]
         ]
     ]
-];
+            ];

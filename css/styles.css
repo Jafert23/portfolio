@@ -647,6 +647,31 @@ nav {
     text-align: center;
 }
 
+.moodboard-container {
+    text-align: center;
+    margin: var(--spacing-md) auto;
+    padding: var(--spacing-sm);
+   /* background-color:var(--color-light-bg);  /* Light background for clear contrast */
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    max-width: 600px;         /* Constrains the width */
+    color: #333;              /* Dark text for readability */
+}
+
+.moodboard-text {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+.moodboard-container a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+
 /* =====================================
    11. Call to Action Section
    ===================================== */

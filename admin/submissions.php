@@ -1,113 +1,48 @@
 <?php
+require_once 'security.php';
 session_start();
 
-// Check if user is logged in
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header('Location: login.php');
-    exit;
-}
+// Validate session and security
+Security::validateSession();
 
 require_once '../includes/db.php';
-
-// Handle CSV Export
-if (isset($_GET['export']) && $_GET['export'] === 'csv') {
-    try {
-        $db = Database::getInstance()->getConnection();
-        $stmt = $db->query("SELECT * FROM contact_submissions ORDER BY submission_date DESC");
-        $submissions = $stmt->fetchAll();
-        
-        // Set headers for CSV download
-        header('Content-Type: text/csv');
-        header('Content-Disposition: attachment; filename="submissions_' . date('Y-m-d') . '.csv"');
-        
-        $output = fopen('php://output', 'w');
-        fputcsv($output, ['Date', 'Name', 'Email', 'Message', 'Status', 'IP Address']);
-        
-        foreach ($submissions as $submission) {
-            fputcsv($output, [
-                $submission['submission_date'],
-                $submission['name'],
-                $submission['email'],
-                $submission['message'],
-                $submission['status'],
-                $submission['ip_address']
-            ]);
-        }
-        
-        fclose($output);
-        exit;
-    } catch (Exception $e) {
-        $error = "Error exporting data: " . $e->getMessage();
-    }
-}
 
 try {
     $db = Database::getInstance()->getConnection();
     
-    // Initialize filters
-    $search = $_GET['search'] ?? '';
-    $status_filter = $_GET['status'] ?? '';
-    $date_from = $_GET['date_from'] ?? '';
-    $date_to = $_GET['date_to'] ?? '';
+    // Sanitize and validate page parameter
+    $page = filter_var($_GET['page'] ?? 1, FILTER_VALIDATE_INT);
+    $page = ($page > 0) ? $page : 1;
     
-    // Build query conditions
-    $conditions = [];
-    $params = [];
-    
-    if ($search) {
-        $conditions[] = "(name LIKE ? OR email LIKE ? OR message LIKE ?)";
-        $search_param = "%$search%";
-        $params = array_merge($params, [$search_param, $search_param, $search_param]);
-    }
-    
-    if ($status_filter) {
-        $conditions[] = "status = ?";
-        $params[] = $status_filter;
-    }
-    
-    if ($date_from) {
-        $conditions[] = "submission_date >= ?";
-        $params[] = $date_from . " 00:00:00";
-    }
-    
-    if ($date_to) {
-        $conditions[] = "submission_date <= ?";
-        $params[] = $date_to . " 23:59:59";
-    }
-    
-    $where_clause = $conditions ? 'WHERE ' . implode(' AND ', $conditions) : '';
-    
-    // Get submissions with pagination
-    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $per_page = 10;
     $offset = ($page - 1) * $per_page;
     
     // Get total count
-    $count_sql = "SELECT COUNT(*) FROM contact_submissions $where_clause";
-    $stmt = $db->prepare($count_sql);
-    $stmt->execute($params);
-    $total = $stmt->fetchColumn();
+    $total = $db->query("SELECT COUNT(*) FROM contact_submissions")->fetchColumn();
     $total_pages = ceil($total / $per_page);
     
+    // Validate page is within bounds
+    if ($page > $total_pages) {
+        $page = $total_pages;
+        $offset = ($page - 1) * $per_page;
+    }
+    
     // Get submissions for current page
-    $sql = "SELECT * FROM contact_submissions $where_clause ORDER BY submission_date DESC LIMIT ? OFFSET ?";
-    $stmt = $db->prepare($sql);
-    $params[] = $per_page;
-    $params[] = $offset;
-    $stmt->execute($params);
+    $stmt = $db->prepare("
+        SELECT * FROM contact_submissions 
+        ORDER BY submission_date DESC 
+        LIMIT :limit OFFSET :offset
+    ");
+    
+    $stmt->bindValue(':limit', $per_page, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    
     $submissions = $stmt->fetchAll();
     
-    // Get unique statuses for filter dropdown
-    $statuses = $db->query("SELECT DISTINCT status FROM contact_submissions")->fetchAll(PDO::FETCH_COLUMN);
-    
 } catch (Exception $e) {
-    $error = "Error fetching submissions: " . $e->getMessage();
-}
-
-// Function to maintain query parameters in pagination links
-function buildQueryString($page, $current_params = []) {
-    $params = array_merge($_GET, ['page' => $page]);
-    return '?' . http_build_query($params);
+    error_log("Admin Error: " . $e->getMessage());
+    $error = "An error occurred while fetching submissions.";
 }
 ?>
 <!DOCTYPE html>
@@ -116,8 +51,6 @@ function buildQueryString($page, $current_params = []) {
     <meta charset="UTF-8">
     <title>Contact Form Submissions</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <style>
         .admin-container {
             max-width: 1200px;
@@ -170,101 +103,13 @@ function buildQueryString($page, $current_params = []) {
             align-items: center;
             margin-bottom: 20px;
         }
-        .filters {
-            margin: 20px 0;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-        .filters form {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        .filter-group {
-            margin-bottom: 10px;
-        }
-        .filter-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .filter-group input,
-        .filter-group select {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .btn-export {
-            background-color: #28a745;
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-        }
-        .btn-reset {
-            background-color: #6c757d;
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-        }
     </style>
 </head>
 <body>
     <div class="admin-container">
         <div class="admin-header">
             <h1>Contact Form Submissions</h1>
-            <div class="action-buttons">
-                <a href="?export=csv" class="btn-export">Export CSV</a>
-                <a href="logout.php" class="btn">Logout</a>
-            </div>
-        </div>
-        
-        <div class="filters">
-            <form method="get" action="">
-                <div class="filter-group">
-                    <label for="search">Search:</label>
-                    <input type="text" id="search" name="search" value="<?php echo htmlspecialchars($search); ?>" 
-                           placeholder="Search name, email, or message">
-                </div>
-                
-                <div class="filter-group">
-                    <label for="status">Status:</label>
-                    <select id="status" name="status">
-                        <option value="">All Statuses</option>
-                        <?php foreach ($statuses as $status): ?>
-                            <option value="<?php echo htmlspecialchars($status); ?>"
-                                    <?php echo $status_filter === $status ? 'selected' : ''; ?>>
-                                <?php echo htmlspecialchars(ucfirst($status)); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                
-                <div class="filter-group">
-                    <label for="date_from">From Date:</label>
-                    <input type="date" id="date_from" name="date_from" value="<?php echo htmlspecialchars($date_from); ?>">
-                </div>
-                
-                <div class="filter-group">
-                    <label for="date_to">To Date:</label>
-                    <input type="date" id="date_to" name="date_to" value="<?php echo htmlspecialchars($date_to); ?>">
-                </div>
-                
-                <div class="filter-group">
-                    <label>&nbsp;</label>
-                    <div class="action-buttons">
-                        <button type="submit" class="btn">Apply Filters</button>
-                        <a href="?" class="btn-reset">Reset</a>
-                    </div>
-                </div>
-            </form>
+            <a href="logout.php" class="btn">Logout</a>
         </div>
         
         <?php if (isset($error)): ?>
@@ -302,7 +147,7 @@ function buildQueryString($page, $current_params = []) {
             <?php if ($total_pages > 1): ?>
                 <div class="pagination">
                     <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                        <a href="<?php echo buildQueryString($i); ?>" 
+                        <a href="?page=<?php echo $i; ?>" 
                            class="<?php echo $page === $i ? 'active' : ''; ?>">
                             <?php echo $i; ?>
                         </a>
@@ -311,18 +156,5 @@ function buildQueryString($page, $current_params = []) {
             <?php endif; ?>
         <?php endif; ?>
     </div>
-    
-    <script>
-        // Initialize date pickers
-        flatpickr("#date_from", {
-            dateFormat: "Y-m-d",
-            maxDate: "today"
-        });
-        
-        flatpickr("#date_to", {
-            dateFormat: "Y-m-d",
-            maxDate: "today"
-        });
-    </script>
 </body>
 </html> 
