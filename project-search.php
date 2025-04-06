@@ -127,6 +127,67 @@ include 'includes/header.php';
         margin: 3rem 0;
     }
     
+    /* Fixed project grid layout - center cards */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 0 auto;
+        justify-content: center;
+    }
+    
+    /* For larger screens, limit to 3 columns and center */
+    @media (min-width: 992px) {
+        .projects-grid {
+            grid-template-columns: repeat(3, minmax(300px, 350px));
+            justify-content: center;
+        }
+        
+        /* Featured projects specific - 2 columns */
+        .featured-projects {
+            grid-template-columns: repeat(2, minmax(300px, 450px));
+            max-width: 950px;
+            gap: 2.5rem;
+        }
+    }
+    
+    /* For medium screens */
+    @media (max-width: 991px) and (min-width: 768px) {
+        .projects-grid {
+            grid-template-columns: repeat(2, minmax(300px, 1fr));
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Featured projects also use 2 columns but with more width */
+        .featured-projects {
+            max-width: 850px;
+        }
+    }
+    
+    /* For small screens */
+    @media (max-width: 767px) {
+        .projects-grid {
+            grid-template-columns: minmax(280px, 1fr);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    }
+    
+    /* Make project cards fill their grid area */
+    .project-card {
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    /* Center the category filtered results */
+    .category-filtered-results {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
     @media (max-width: 768px) {
         .search-form {
             flex-direction: column;
