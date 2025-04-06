@@ -26,7 +26,7 @@ $projects = [
         'date' => '2023-03-10',
         'skills' => ['Frontend Development', 'API Integration', 'UI Design'],
         'type' => 'Web Application',
-        'github_link' => '',
+        'github_link' => 'https://github.com/Jafert23/MoodBoard-Machine.git',
         'keywords' => ['moodboard', 'inspiration', 'design', 'images']
     ],
     [
@@ -60,7 +60,7 @@ $projects = [
         'date' => '2022-11-10',
         'skills' => ['Full-stack Development', 'API Integration', 'AI Implementation'],
         'type' => 'Web Platform',
-        'github_link' => '',
+        'github_link' => 'https://github.com/Jafert23/WELLINFORMED-BUILD.git',
         'keywords' => ['medical', 'healthcare', 'research', 'AI', 'summaries']
     ],
     [
@@ -140,7 +140,7 @@ $projects = [
         'date' => '2023-06-15',
         'skills' => ['Frontend Development', 'UI Design', 'Web Design'],
         'type' => 'Web Application',
-        'github_link' => '',
+        'github_link' => 'https://github.com/Jafert23/ReactCapstone.git',
         'keywords' => ['restaurant', 'meta', 'capstone', 'frontend']
     ],
     [
@@ -167,7 +167,7 @@ $projects = [
         'date' => '2022-12-05',
         'skills' => ['Web Development', 'Technical Writing', 'Collaboration'],
         'type' => 'Educational Website',
-        'github_link' => '',
+        'github_link' => 'https://github.com/DkalCode/Command-Line-Consultants.git',
         'keywords' => ['linux', 'tutorial', 'command line', 'education']
     ],
     [
