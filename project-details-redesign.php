@@ -17,9 +17,9 @@ if (!$project) {
     exit;
 }
 
-// Set the page title and meta description
-$pageTitle = htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8') . ' | Elliot Tindall';
-$metaDescription = htmlspecialchars($project['short_description'], ENT_QUOTES, 'UTF-8');
+// Set the page title and meta description dynamically
+$pageTitle = htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8') . ' | Project Details | Elliot Tindall';
+$metaDescription = 'Details for the project: ' . htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8') . '. ' . htmlspecialchars($project['short_description'], ENT_QUOTES, 'UTF-8') . ' | Elliot Tindall Portfolio.';
 
 // Include the header
 include 'includes/header.php';
@@ -89,8 +89,9 @@ $technologies = array_map('trim', $technologies);
                 <?php if (!empty($project['images']['screenshots']) && count($project['images']['screenshots']) > 0): ?>
                 <!-- Featured Image (first screenshot) -->
                 <div class="featured-image">
+                    <?php $featuredImageAlt = 'Main screenshot for project: ' . htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8'); ?>
                     <img src="<?php echo htmlspecialchars($project['images']['screenshots'][0], ENT_QUOTES, 'UTF-8'); ?>" 
-                         alt="<?php echo htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8'); ?>"
+                         alt="<?php echo $featuredImageAlt; ?>"
                          loading="lazy">
                 </div>
                 <?php endif; ?>
@@ -125,10 +126,12 @@ $technologies = array_map('trim', $technologies);
                     $galleryImages = array_slice($project['images']['screenshots'], 1);
                     
                     foreach ($galleryImages as $index => $image): 
+                        // Construct alt text for gallery images
+                        $galleryAltText = htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8') . ' screenshot ' . ($index + 2);
                     ?>
                         <div class="gallery-item" data-image-index="<?php echo $index; ?>">
                             <img src="<?php echo htmlspecialchars($image, ENT_QUOTES, 'UTF-8'); ?>" 
-                                 alt="<?php echo htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8') . ' screenshot ' . ($index + 2); ?>"
+                                 alt="<?php echo $galleryAltText; ?>"
                                  loading="lazy">
                             
                             <div class="gallery-overlay">

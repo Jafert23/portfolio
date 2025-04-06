@@ -3,8 +3,8 @@
 include 'data/projects-enhanced.php';
 
 // Set the page title
-$pageTitle = 'Project Search | Elliot Tindall';
-$metaDescription = 'Search through Elliot Tindall\'s portfolio of web development and design projects.';
+$pageTitle = 'Projects | Elliot Tindall | Web Development, Design & Art';
+$metaDescription = 'Explore the portfolio projects of Elliot Tindall, including web development, design, art, and other works. Search and filter by category or technology.';
 
 // Process search query if submitted
 $searchQuery = '';
@@ -530,6 +530,9 @@ include 'includes/header.php';
                     // Clean up the technology names
                     $previewTechs = array_map('trim', $previewTechs);
                     
+                    // Construct alt text for featured projects
+                    $featuredAltText = 'Featured project: ' . htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8') . '. Category: ' . htmlspecialchars($project['category'], ENT_QUOTES, 'UTF-8') . '.';
+                    
                     // Debug output for art projects
                     if ($project['category'] === 'art') {
                         echo "<!-- Debug: Art project found in featured: " . htmlspecialchars($project['title']) . " -->";
@@ -539,7 +542,7 @@ include 'includes/header.php';
                         <!-- Card image -->
                         <div class="card-image">
                             <img src="<?php echo htmlspecialchars($project['images']['thumb'], ENT_QUOTES, 'UTF-8'); ?>" 
-                                 alt="<?php echo htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8'); ?>"
+                                 alt="<?php echo $featuredAltText; ?>"
                                  loading="lazy">
                             
                             <!-- Project type badge -->
@@ -653,12 +656,15 @@ include 'includes/header.php';
         
         // Clean up the technology names
         $previewTechs = array_map('trim', $previewTechs);
+        
+        // Construct alt text
+        $altText = 'Thumbnail for project: ' . htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8') . '. Category: ' . htmlspecialchars($project['category'], ENT_QUOTES, 'UTF-8') . '.';
     ?>
         <div class="project-card" data-category="<?php echo htmlspecialchars($project['category'], ENT_QUOTES, 'UTF-8'); ?>">
             <!-- Card image -->
             <div class="card-image">
                 <img src="<?php echo htmlspecialchars($project['images']['thumb'], ENT_QUOTES, 'UTF-8'); ?>" 
-                     alt="<?php echo htmlspecialchars($project['title'], ENT_QUOTES, 'UTF-8'); ?>"
+                     alt="<?php echo $altText; ?>"
                      loading="lazy">
                 
                 <!-- Project type badge -->

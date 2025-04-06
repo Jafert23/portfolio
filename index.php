@@ -1,6 +1,7 @@
 <!-- index.php -->
 <?php
-$pageTitle = 'About Me | Elliot Tindall';
+$pageTitle = 'Elliot Tindall | Creative Technologist & Developer Portfolio';
+$metaDescription = 'Portfolio of Elliot Tindall, a creative technologist and developer specializing in web development, design, and art projects. Explore skills, experience, and featured work.';
 include 'includes/header.php';
 ?>
 

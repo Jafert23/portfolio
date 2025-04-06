@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $pageTitle ?? 'Elliot Tindall | Portfolio'; ?></title>
+    <title><?php echo isset($pageTitle) ? htmlspecialchars($pageTitle, ENT_QUOTES, 'UTF-8') : 'Elliot Tindall | Portfolio'; ?></title>
     <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <!-- Lightbox CSS (if needed) -->
@@ -15,8 +15,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&family=Roboto&display=swap" rel="stylesheet">
     <!-- Meta Tags for SEO -->
-    <meta name="description" content="Elliot Tindall - Creative Technologist with a passion for art, design, and technology.">
-    <meta name="keywords" content="Elliot Tindall, Creative Technologist, Web Developer, Designer, Artist">
+    <meta name="description" content="<?php echo isset($metaDescription) ? htmlspecialchars($metaDescription, ENT_QUOTES, 'UTF-8') : 'Elliot Tindall - Creative Technologist portfolio showcasing web development, design, and art projects.'; ?>">
+    <meta name="keywords" content="Elliot Tindall, Creative Technologist, Web Developer, Designer, Artist, Portfolio, Projects">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
