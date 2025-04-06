@@ -6,6 +6,30 @@
 
 $projects = [
     [
+        // Moodboard
+        'id' => 'moodboard',
+        'title' => 'Moodboard',
+        'short_description' => 'A React app that generates a moodboard based on a user-provided prompt.',
+        'long_description' => 'Moodboard is a React app that generates a moodboard based on a user-provided prompt. It uses the Pexels API to help generate the moodboard.',
+        'technologies' => 'React.js, Pexels API, JavaScript, HTML5, CSS3',
+        'live_link' => 'https://moodboard.creativeelliot.com',
+        'category' => 'websites',
+        'images' => [
+            'thumb' => 'images/moodboard/thumb.png',
+            'screenshots' => [
+                'images/moodboard/screenshot1.png',
+            ],
+        ],
+        // Enhanced fields
+        'tech_tags' => ['React', 'JavaScript', 'HTML5', 'CSS3', 'Pexels API'],
+        'featured' => true,
+        'date' => '2023-03-10',
+        'skills' => ['Frontend Development', 'API Integration', 'UI Design'],
+        'type' => 'Web Application',
+        'github_link' => '',
+        'keywords' => ['moodboard', 'inspiration', 'design', 'images']
+    ],
+    [
         // Well/Informed
         'id' => 'project3',
         'title' => 'Well/Informed',
@@ -118,30 +142,6 @@ $projects = [
         'type' => 'Web Application',
         'github_link' => '',
         'keywords' => ['restaurant', 'meta', 'capstone', 'frontend']
-    ],
-    [
-        // Moodboard
-        'id' => 'moodboard',
-        'title' => 'Moodboard',
-        'short_description' => 'A React app that generates a moodboard based on a user-provided prompt.',
-        'long_description' => 'Moodboard is a React app that generates a moodboard based on a user-provided prompt. It uses the Pexels API to help generate the moodboard.',
-        'technologies' => 'React.js, Pexels API, JavaScript, HTML5, CSS3',
-        'live_link' => 'https://moodboard.creativeelliot.com',
-        'category' => 'websites',
-        'images' => [
-            'thumb' => 'images/moodboard/thumb.png',
-            'screenshots' => [
-                'images/moodboard/screenshot1.png',
-            ],
-        ],
-        // Enhanced fields
-        'tech_tags' => ['React', 'JavaScript', 'HTML5', 'CSS3', 'Pexels API'],
-        'featured' => true,
-        'date' => '2023-03-10',
-        'skills' => ['Frontend Development', 'API Integration', 'UI Design'],
-        'type' => 'Web Application',
-        'github_link' => '',
-        'keywords' => ['moodboard', 'inspiration', 'design', 'images']
     ],
     [
         // Linux Crash Course
