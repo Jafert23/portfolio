@@ -28,3 +28,13 @@ Options -Indexes
         Deny from all
     </FilesMatch>
 </Directory>
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Redirect old project.php to new project-details-redesign.php
+RewriteCond %{QUERY_STRING} ^id=(.*)$
+RewriteRule ^project\.php$ project-details-redesign.php?id=%1 [R=301,L]
+
+# Redirect about.php to project-search.php
+RewriteRule ^about\.php$ project-search.php [R=301,L]

@@ -32,7 +32,7 @@
         <li><a href="#"style="pointer-events: none;"></a></li>
         <li><a href="index.php">Home</a></li>
         <li><a href="#"style="pointer-events: none;"></a></li>
-        <li><a href="about.php">Projects</a></li>
+        <li><a href="project-search.php">Projects</a></li>
         <li><a href="#"style="pointer-events: none;"></a></li>
         <li><a href="contact.php">Contact</a></li>
         <li><a href="#"style="pointer-events: none;"></a></li>
