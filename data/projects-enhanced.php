@@ -23,7 +23,7 @@ $projects = [
         // Enhanced fields
         'tech_tags' => ['React', 'JavaScript', 'HTML5', 'CSS3', 'Pexels API'],
         'featured' => true,
-        'date' => '2023-03-10',
+        'date' => '',
         'skills' => ['Frontend Development', 'API Integration', 'UI Design'],
         'type' => 'Web Application',
         'github_link' => 'https://github.com/Jafert23/MoodBoard-Machine.git',
@@ -57,7 +57,7 @@ $projects = [
         // Enhanced fields
         'tech_tags' => ['React', 'Node.js', 'Express', 'OpenAI', 'PubMed API', 'Firebase'],
         'featured' => true,
-        'date' => '2022-11-10',
+        'date' => '',
         'skills' => ['Full-stack Development', 'API Integration', 'AI Implementation'],
         'type' => 'Web Platform',
         'github_link' => 'https://github.com/Jafert23/WELLINFORMED-BUILD.git',
@@ -86,7 +86,7 @@ $projects = [
         // Enhanced fields
         'tech_tags' => ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design'],
         'featured' => true,
-        'date' => '2023-02-20',
+        'date' => '',
         'skills' => ['Web Design', 'Content Creation', 'Photography'],
         'type' => 'Travel Website',
         'github_link' => '',
@@ -113,7 +113,7 @@ $projects = [
         // Enhanced fields
         'tech_tags' => ['React', 'Node.js', 'JavaScript', 'HTML5', 'CSS3'],
         'featured' => true,
-        'date' => '2023-05-20',
+        'date' => '',
         'skills' => ['Web Development', 'Research', 'Data Visualization'],
         'type' => 'Research Website',
         'github_link' => '',
@@ -137,7 +137,7 @@ $projects = [
         // Enhanced fields
         'tech_tags' => ['HTML', 'CSS', 'JavaScript', 'Figma', 'Git', 'APIs'],
         'featured' => false,
-        'date' => '2023-06-15',
+        'date' => '',
         'skills' => ['Frontend Development', 'UI Design', 'Web Design'],
         'type' => 'Web Application',
         'github_link' => 'https://github.com/Jafert23/ReactCapstone.git',
@@ -164,7 +164,7 @@ $projects = [
         // Enhanced fields
         'tech_tags' => ['PHP', 'HTML5', 'CSS3', 'JavaScript', 'MySQL', 'Figma'],
         'featured' => false,
-        'date' => '2022-12-05',
+        'date' => '',
         'skills' => ['Web Development', 'Technical Writing', 'Collaboration'],
         'type' => 'Educational Website',
         'github_link' => 'https://github.com/DkalCode/Command-Line-Consultants.git',
@@ -186,7 +186,7 @@ $projects = [
         // Enhanced fields
         'tech_tags' => ['Microsoft Word', 'Document Design'],
         'featured' => true,
-        'date' => '2024-01-15',
+        'date' => '',
         'skills' => ['Resume Design', 'Professional Writing'],
         'type' => 'Document',
         'github_link' => '',
@@ -211,7 +211,7 @@ $projects = [
         // Enhanced fields
         'tech_tags' => ['Photoshop', 'Illustrator', 'Digital Photography'],
         'featured' => false,
-        'date' => '2023-04-22',
+        'date' => '',
         'skills' => ['Digital Art', 'Photo Editing', 'Photography'],
         'type' => 'Digital Artwork',
         'github_link' => '',
@@ -238,7 +238,7 @@ $projects = [
         // Enhanced fields
         'tech_tags' => ['Photoshop', 'Illustrator', 'Branding'],
         'featured' => false,
-        'date' => '2023-03-15',
+        'date' => '',
         'skills' => ['Logo Design', 'Brand Identity', 'Graphic Design'],
         'type' => 'Branding Project',
         'github_link' => '',
@@ -269,7 +269,7 @@ $projects = [
         // Enhanced fields
         'tech_tags' => ['Photoshop', 'Illustrator', 'InDesign', 'Crafting'],
         'featured' => false,
-        'date' => '2022-10-12',
+        'date' => '',
         'skills' => ['Instructional Design', 'Craft Documentation', 'Photography'],
         'type' => 'DIY Guide',
         'github_link' => '',
@@ -293,7 +293,7 @@ $projects = [
         // Enhanced fields
         'tech_tags' => ['Photoshop', 'Illustrator', 'Photography', 'Composite'],
         'featured' => false,
-        'date' => '2023-01-30',
+        'date' => '',
         'skills' => ['Photo Editing', 'Composition', 'Creative Photography'],
         'type' => 'Digital Composite',
         'github_link' => '',

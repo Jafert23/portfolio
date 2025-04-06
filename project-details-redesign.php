@@ -1,6 +1,6 @@
 <?php
 // Include the projects data
-include 'data/projects.php';
+include 'data/projects-enhanced.php';
 
 // Include functions
 require_once 'includes/functions.php';
