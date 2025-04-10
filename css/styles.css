@@ -1172,6 +1172,16 @@ body.dark-mode p {
     color: var(--color-dark-mode-text);
 }
 
+/* Make sure contact form heading is visible in dark mode */
+body.dark-mode .contact-form h2 {
+    color: var(--color-dark-mode-text);
+}
+
+/* Make contact form labels visible in dark mode */
+body.dark-mode .contact-form label {
+    color: var(--color-dark-mode-text);
+}
+
 @media (max-width: 600px) {
     .projects-grid {
         /* Lower the min width to allow more items per row */
@@ -1258,4 +1268,46 @@ body.dark-mode .overlay {
 /* Increase visibility of language text in skills section */
 body.dark-mode .skill-item li span {
     color: var(--color-dark-mode-text);
+}
+
+/* Make sure contact form elements are visible in dark mode */
+body.dark-mode .contact-form {
+    background-color: #222;
+    color: var(--color-dark-mode-text);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .contact-form h2 {
+    color: var(--color-dark-mode-text);
+    font-weight: 600;
+}
+
+body.dark-mode .contact-form label {
+    color: #e0e0e0;
+}
+
+body.dark-mode .contact-form input[type="text"],
+body.dark-mode .contact-form input[type="email"],
+body.dark-mode .contact-form textarea {
+    background-color: #333;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+body.dark-mode .contact-form input[type="text"]:focus,
+body.dark-mode .contact-form input[type="email"]:focus,
+body.dark-mode .contact-form textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        /* Lower the min width to allow more items per row */
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .project img {
+        /* Reduce the fixed height so more projects are visible */
+        height: 200px;
+    }
 }
