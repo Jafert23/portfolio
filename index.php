@@ -26,53 +26,63 @@ include 'includes/header.php';
     <!-- Skills Section -->
     <section class="skills" data-aos="fade-up">
         <h2>Technical Familiarity</h2>
+        
         <div class="skills-container">
-            <!-- Skill Item: Frontend -->
-            <div class="skill-item">
+            <!-- Frontend Technologies -->
+            <div class="skill-category">
                 <h3><i class="fa-solid fa-code"></i> Frontend</h3>
-                <ul>
-                    <li>
-                        <span><i class="fa-brands fa-html5"></i> HTML5</span>
-                    </li>
-                    <li>
-                        <span><i class="fa-brands fa-css3-alt"></i> CSS3</span>
-                    </li>
-                    <li>
-                        <span><i class="fa-brands fa-js"></i> JavaScript</span>
-                    </li>
-                    <li>
-                        <span><i class="fa-brands fa-react"></i> React</span>
-                    </li>
-                </ul>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <i class="fa-brands fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="tech-card">
+                        <i class="fa-brands fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="tech-card">
+                        <i class="fa-brands fa-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-card">
+                        <i class="fa-brands fa-react"></i>
+                        <span>React</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Skill Item: Backend -->
-            <div class="skill-item">
+            <!-- Backend Technologies -->
+            <div class="skill-category">
                 <h3><i class="fa-solid fa-server"></i> Backend</h3>
-                <ul>
-                    <li>
-                        <span><i class="fa-brands fa-node-js"></i> Node.js</span>
-                    </li>
-                    <li>
-                        <span><i class="fa-brands fa-php"></i> PHP</span>
-                    </li>
-                    <li>
-                        <span><i class="fa-solid fa-database"></i> MySQL</span>
-                    </li>
-                </ul>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <i class="fa-brands fa-node-js"></i>
+                        <span>Node.js</span>
+                    </div>
+                    <div class="tech-card">
+                        <i class="fa-brands fa-php"></i>
+                        <span>PHP</span>
+                    </div>
+                    <div class="tech-card">
+                        <i class="fa-solid fa-database"></i>
+                        <span>MySQL</span>
+                    </div>
+                </div>
             </div>
 
-            <!-- Skill Item: Other Languages -->
-            <div class="skill-item">
+            <!-- Other Languages -->
+            <div class="skill-category">
                 <h3><i class="fa-solid fa-laptop-code"></i> Other Languages</h3>
-                <ul>
-                    <li>
-                        <span><i class="fa-brands fa-python"></i> Python</span>
-                    </li>
-                    <li>
-                        <span><i class="fa-solid fa-code"></i> R</span>
-                    </li>
-                </ul>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <i class="fa-brands fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-card">
+                        <i class="fa-solid fa-code"></i>
+                        <span>R</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -30,6 +30,33 @@ $projects = [
         'keywords' => ['moodboard', 'inspiration', 'design', 'images']
     ],
     [
+        // Environmental Sustainability & AI
+        'id' => 'project4',
+        'title' => 'Environmental Sustainability & AI',
+        'short_description' => 'Research project exploring AI applications for environmental conservation and sustainability',
+        'long_description' => "This project investigates how artificial intelligence can be harnessed to enhance environmental sustainability efforts.",
+        'technologies' => 'React.js, Node.js, JavaScript, HTML5, CSS3, Adobe Illustrator',
+        'live_link' => 'https://ai-sustainability.creativeelliot.com',
+        'category' => 'websites',
+        'images' => [
+            'thumb' => 'images/ai-sustainability/thumb.png',
+            'screenshots' => [
+                'images/ai-sustainability/screenshot1.png',
+                'images/ai-sustainability/screenshot2.png',
+                'images/ai-sustainability/screenshot3.png',
+                'images/ai-sustainability/screenshot4.png'
+            ],
+        ],
+        // Enhanced fields
+        'tech_tags' => ['React', 'Node.js', 'JavaScript', 'HTML5', 'CSS3'],
+        'featured' => true,
+        'date' => '',
+        'skills' => ['Web Development', 'Research', 'Data Visualization'],
+        'type' => 'Research Website',
+        'github_link' => '',
+        'keywords' => ['environment', 'sustainability', 'AI', 'climate']
+    ],
+    [
         // Well/Informed
         'id' => 'project3',
         'title' => 'Well/Informed',
@@ -56,7 +83,7 @@ $projects = [
         ],
         // Enhanced fields
         'tech_tags' => ['React', 'Node.js', 'Express', 'OpenAI', 'PubMed API', 'Firebase'],
-        'featured' => true,
+        'featured' => false,
         'date' => '',
         'skills' => ['Full-stack Development', 'API Integration', 'AI Implementation'],
         'type' => 'Web Platform',
@@ -91,33 +118,6 @@ $projects = [
         'type' => 'Travel Website',
         'github_link' => '',
         'keywords' => ['japan', 'travel', 'guide', 'culture', 'interactive']
-    ],
-    [
-        // Environmental Sustainability & AI
-        'id' => 'project4',
-        'title' => 'Environmental Sustainability & AI',
-        'short_description' => 'Research project exploring AI applications for environmental conservation and sustainability',
-        'long_description' => "This project investigates how artificial intelligence can be harnessed to enhance environmental sustainability efforts.",
-        'technologies' => 'React.js, Node.js, JavaScript, HTML5, CSS3, Adobe Illustrator',
-        'live_link' => 'https://ai-sustainability.creativeelliot.com',
-        'category' => 'websites',
-        'images' => [
-            'thumb' => 'images/ai-sustainability/thumb.png',
-            'screenshots' => [
-                'images/ai-sustainability/screenshot1.png',
-                'images/ai-sustainability/screenshot2.png',
-                'images/ai-sustainability/screenshot3.png',
-                'images/ai-sustainability/screenshot4.png'
-            ],
-        ],
-        // Enhanced fields
-        'tech_tags' => ['React', 'Node.js', 'JavaScript', 'HTML5', 'CSS3'],
-        'featured' => true,
-        'date' => '',
-        'skills' => ['Web Development', 'Research', 'Data Visualization'],
-        'type' => 'Research Website',
-        'github_link' => '',
-        'keywords' => ['environment', 'sustainability', 'AI', 'climate']
     ],
     [
         // Meta Frontend Developer Capstone
@@ -171,28 +171,6 @@ $projects = [
         'keywords' => ['linux', 'tutorial', 'command line', 'education']
     ],
     [
-        // Resume
-        'id' => 'Resume',
-        'title' => 'Resume-January_2025',
-        'short_description' => 'My professional resume',
-        'long_description' => "Current professional resume highlighting my skills, experience, and education.",
-        'technologies' => 'Microsoft Word',
-        'live_link' => 'https://drive.google.com/file/d/1YEVp2RC6Gj2i_Taox3dFQMFRnQ64lOfM/view?usp=sharing',
-        'category' => 'misc',
-        'images' => [
-            'thumb' => 'images/resume/600x400_resume.svg',
-            'screenshots' => [],
-        ],
-        // Enhanced fields
-        'tech_tags' => ['Microsoft Word', 'Document Design'],
-        'featured' => true,
-        'date' => '',
-        'skills' => ['Resume Design', 'Professional Writing'],
-        'type' => 'Document',
-        'github_link' => '',
-        'keywords' => ['resume', 'cv', 'professional', 'career']
-    ],
-    [
         // Throwie Digital Art
         'id' => "throwieProject",
         'title' => "Throwie Digital Art & Photoshop",
@@ -210,7 +188,7 @@ $projects = [
         ],
         // Enhanced fields
         'tech_tags' => ['Photoshop', 'Illustrator', 'Digital Photography'],
-        'featured' => false,
+        'featured' => true,
         'date' => '',
         'skills' => ['Digital Art', 'Photo Editing', 'Photography'],
         'type' => 'Digital Artwork',
@@ -237,7 +215,7 @@ $projects = [
         ],
         // Enhanced fields
         'tech_tags' => ['Photoshop', 'Illustrator', 'Branding'],
-        'featured' => false,
+        'featured' => true,
         'date' => '',
         'skills' => ['Logo Design', 'Brand Identity', 'Graphic Design'],
         'type' => 'Branding Project',
@@ -298,6 +276,28 @@ $projects = [
         'type' => 'Digital Composite',
         'github_link' => '',
         'keywords' => ['Iceland', 'composite', 'photography', 'miniature']
+    ],
+    [
+        // Resume
+        'id' => 'Resume',
+        'title' => 'Resume-January_2025',
+        'short_description' => 'My professional resume',
+        'long_description' => "Current professional resume highlighting my skills, experience, and education.",
+        'technologies' => 'Microsoft Word',
+        'live_link' => 'https://drive.google.com/file/d/1YEVp2RC6Gj2i_Taox3dFQMFRnQ64lOfM/view?usp=sharing',
+        'category' => 'misc',
+        'images' => [
+            'thumb' => 'images/resume/600x400_resume.svg',
+            'screenshots' => [],
+        ],
+        // Enhanced fields
+        'tech_tags' => ['Microsoft Word', 'Document Design'],
+        'featured' => true,
+        'date' => '',
+        'skills' => ['Resume Design', 'Professional Writing'],
+        'type' => 'Document',
+        'github_link' => '',
+        'keywords' => ['resume', 'cv', 'professional', 'career']
     ]
 ];
 

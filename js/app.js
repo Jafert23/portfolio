@@ -1,6 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Force dark mode by default
     document.body.classList.add('dark-mode');
+
+    // Add staggered animation to tech cards
+    const techCards = document.querySelectorAll('.tech-card');
+    if (techCards.length > 0) {
+        techCards.forEach((card, index) => {
+            // Add a slight delay based on the card's index for a staggered effect
+            card.style.animationDelay = `${index * 0.1}s`;
+            
+            // Add hover tracking for smooth icon color transitions
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('tech-card-hover');
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.classList.remove('tech-card-hover');
+            });
+        });
+    }
 });
 // Menu Toggle for Mobile View
 const menuToggle = document.querySelector('.menu-toggle');
