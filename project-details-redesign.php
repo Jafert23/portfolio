@@ -251,16 +251,11 @@ $technologies = array_map('trim', $technologies);
                 <button class="lightbox-close" aria-label="Close lightbox">×</button>
                 
                 <div class="lightbox-controls">
-                    <div class="lightbox-nav">
-                        <button class="lightbox-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-                        <button class="lightbox-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                    
-                    <div class="lightbox-zoom-controls">
-                        <button class="zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
-                        <button class="zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
-                        <button class="zoom-reset" aria-label="Reset zoom"><i class="fas fa-redo"></i></button>
-                    </div>
+                    <button class="lightbox-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                    <button class="zoom-in" aria-label="Zoom in"><i class="fas fa-search-plus"></i></button>
+                    <button class="zoom-out" aria-label="Zoom out"><i class="fas fa-search-minus"></i></button>
+                    <button class="zoom-reset" aria-label="Reset zoom"><i class="fas fa-arrow-rotate-right"></i></button>
+                    <button class="lightbox-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
                     
                     <div class="lightbox-counter">
                         <span id="current-image">1</span> / <span id="total-images">1</span>
@@ -401,7 +396,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Image dragging
     lightboxImage.addEventListener('mousedown', function(e) {
-        if (zoomLevel > 1) {
+        // Only initiate dragging when directly on the image
+        if (zoomLevel > 1 && e.target === lightboxImage) {
             isDragging = true;
             startX = e.clientX - translateX;
             startY = e.clientY - translateY;
@@ -504,6 +500,7 @@ document.addEventListener('DOMContentLoaded', function() {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 60px; /* Add padding to ensure room for controls */
 }
 
 #lightbox-image {
@@ -513,6 +510,7 @@ document.addEventListener('DOMContentLoaded', function() {
     border-radius: 4px;
     transition: transform 0.3s ease;
     cursor: move;
+    z-index: 5; /* Lower z-index than controls */
 }
 
 .lightbox-close {
@@ -531,6 +529,7 @@ document.addEventListener('DOMContentLoaded', function() {
     border: none;
     cursor: pointer;
     transition: background 0.3s ease;
+    z-index: 30;
 }
 
 .lightbox-close:hover {
@@ -538,17 +537,37 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .lightbox-controls {
-    margin-top: 1rem;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.8rem;
     color: white;
+    z-index: 30;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    flex-wrap: nowrap;
 }
 
-.lightbox-nav, .lightbox-zoom-controls {
+/* Center the counter after all controls */
+.lightbox-counter {
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    background: rgba(0,0,0,0.4);
+    padding: 2px 12px;
+    border-radius: 20px;
 }
 
 .lightbox-controls button {
@@ -563,6 +582,43 @@ document.addEventListener('DOMContentLoaded', function() {
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 20; /* Ensure buttons remain clickable */
+}
+
+/* Make previous/next buttons slightly larger */
+.lightbox-prev, .lightbox-next {
+    width: 42px !important;
+    height: 42px !important;
+    background: rgba(255,255,255,0.2) !important;
+}
+
+@media (max-width: 480px) {
+    .lightbox-controls {
+        padding: 8px 12px;
+        gap: 0.5rem;
+        width: auto;
+        min-width: unset;
+    }
+    
+    .lightbox-counter {
+        bottom: -25px;
+        font-size: 0.8rem;
+    }
+    
+    .lightbox-controls button {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .lightbox-prev, .lightbox-next {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    #lightbox-image {
+        max-height: 70vh;
+    }
 }
 
 .lightbox-controls button:hover {
@@ -570,22 +626,8 @@ document.addEventListener('DOMContentLoaded', function() {
     transform: scale(1.1);
 }
 
-.lightbox-counter {
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.8);
-}
-
-@media (max-width: 768px) {
-    .lightbox-controls {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    #lightbox-image {
-        max-height: 70vh;
-    }
+.lightbox-prev:hover, .lightbox-next:hover {
+    background: rgba(255,255,255,0.35) !important;
 }
 </style>
 
@@ -609,6 +651,15 @@ body.dark-mode .project-header {
     margin-bottom: 1.5rem;
     line-height: 1.2;
     position: relative;
+    display: inline-block;
+}
+
+/* Override the default ::after to make it properly aligned */
+.project-title::after {
+    left: 0;
+    width: 60px;
+    height: 4px;
+    margin-top: 0.5rem;
 }
 
 .project-meta {
