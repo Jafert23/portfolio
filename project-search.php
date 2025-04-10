@@ -337,23 +337,7 @@ include 'includes/header.php';
                 <button type="submit" class="search-button">Search</button>
             </form>
             
-            <!-- Technology Filter -->
-            <div class="filter-container">
-                <select name="tech" class="tech-filter" onchange="this.form.submit()">
-                    <option value="">Filter by technology</option>
-                    <?php foreach ($allTechTags as $tag): ?>
-                        <option value="<?php echo htmlspecialchars($tag, ENT_QUOTES, 'UTF-8'); ?>"
-                                <?php echo $selectedTech === $tag ? 'selected' : ''; ?>>
-                            <?php echo htmlspecialchars($tag, ENT_QUOTES, 'UTF-8'); ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-                
-                <?php if (!empty($selectedTech)): ?>
-                    <a href="?<?php echo !empty($searchQuery) ? 'query=' . urlencode($searchQuery) : ''; ?>" 
-                       class="search-button">Clear Filter</a>
-                <?php endif; ?>
-            </div>
+            
             
             <!-- Search Results Info -->
             <?php if (!empty($searchQuery) || !empty($selectedTech)): ?>
